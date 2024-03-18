@@ -43,15 +43,15 @@
                             <div class="row   d-flex justify-content-center">
                                 <div class="col-sm-12">
                                     <form class="form-wizard" id="frmUsers" action="#" method="POST">
-                                        <div class="tab" data-page="Service Info">
+                                        <div class="tab" data-page="Project Info">
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="txtServiceName">Service Name <span
+                                                        <label class="txtProjectName">Project Name <span
                                                                 class="required">*</span></label>
-                                                        <input type="text" class="form-control" id="txtServiceName"
-                                                            value="<?php if ($isEdit) {echo $EditData[0]->ServiceName;}?>">
-                                                        <div class="errors err-sm ServiceInfo" id="txtServiceName-err">
+                                                        <input type="text" class="form-control" id="txtProjectName"
+                                                            value="<?php if ($isEdit) {echo $EditData[0]->ProjectName;}?>">
+                                                        <div class="errors err-sm ProjectInfo" id="txtProjectName-err">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -61,7 +61,7 @@
                                                                 class="required">*</span></label>
                                                         <input type="text" disabled class="form-control" id="txtSlug"
                                                             value="<?php if ($isEdit) {echo $EditData[0]->Slug;}?>">
-                                                        <div class="errors err-sm ServiceInfo" id="txtSlug-err"></div>
+                                                        <div class="errors err-sm ProjectInfo" id="txtSlug-err"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -72,7 +72,7 @@
                                                             data-selected="<?php if ($isEdit) {echo $EditData[0]->CID;}?>">
                                                             <option value="">Select a Category</option>
                                                         </select>
-                                                        <div class="errors err-sm ServiceInfo" id="lstCategory-err">
+                                                        <div class="errors err-sm ProjectInfo" id="lstCategory-err">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,7 +82,7 @@
                                                                 class="required">*</span></label>
                                                         <input type="text" class="form-control" id="txtHSNSAC"
                                                             value="<?php if ($isEdit) {echo $EditData[0]->HSNSAC;}?>">
-                                                        <div class="errors err-sm ServiceInfo" id="txtHSNSAC-err"></div>
+                                                        <div class="errors err-sm ProjectInfo" id="txtHSNSAC-err"></div>
                                                     </div>
                                                 </div>
 
@@ -94,7 +94,7 @@
                                                             step="{{NumberSteps($Settings['price-decimals'])}}"
                                                             class="form-control" id="txtPrice"
                                                             value="<?php if ($isEdit) {echo NumberFormat($EditData[0]->Price, $Settings['price-decimals']);} else {echo NumberFormat(0, $Settings['price-decimals']);}?>">
-                                                        <div class="errors err-sm ServiceInfo" id="txtPrice-err"></div>
+                                                        <div class="errors err-sm ProjectInfo" id="txtPrice-err"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -105,7 +105,7 @@
                                                             data-selected="<?php if ($isEdit) {echo $EditData[0]->UID;}?>">
                                                             <option value="">Select a UOM</option>
                                                         </select>
-                                                        <div class="errors err-sm ServiceInfo" id="lstUOM-err"></div>
+                                                        <div class="errors err-sm ProjectInfo" id="lstUOM-err"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -116,7 +116,7 @@
                                                             data-selected="<?php if ($isEdit) {echo $EditData[0]->TaxID;}?>">
                                                             <option value="">Select a Tax</option>
                                                         </select>
-                                                        <div class="errors err-sm ServiceInfo" id="lstTax-err"></div>
+                                                        <div class="errors err-sm ProjectInfo" id="lstTax-err"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -131,7 +131,7 @@
                                                                 TaxType=="Include") selected @endif @endif>Include
                                                             </option>
                                                         </select>
-                                                        <div class="errors err-sm ServiceInfo" id="lstTaxType-err">
+                                                        <div class="errors err-sm ProjectInfo" id="lstTaxType-err">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -142,7 +142,7 @@
                                                                 class="required">*</span></label>
                                                         <textarea id="txtShortDescription"
                                                             class="form-control"><?php if ($isEdit) {echo $EditData[0]->ShortDescription;}?></textarea>
-                                                        <div class="errors err-sm ServiceInfo"
+                                                        <div class="errors err-sm ProjectInfo"
                                                             id="txtShortDescription-err"></div>
                                                     </div>
                                                 </div>
@@ -156,14 +156,14 @@
                                                                 == "0") selected @endif>Inactive</option>
                                                         </select>
 
-                                                        <div class="errors err-sm ServiceInfo" id="lstActiveStatus-err">
+                                                        <div class="errors err-sm ProjectInfo" id="lstActiveStatus-err">
                                                         </div>
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="tab mb-20" data-page="Service Description">
+                                        <div class="tab mb-20" data-page="Project Description">
                                             <div class="row">
                                                 <div class="col-sm-12 col-12">
                                                     <div id="editor" data-height="250">
@@ -171,14 +171,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab mb-20" data-page="Service Images">
+                                        <div class="tab mb-20" data-page="Project Images">
                                             <div class="row  d-flex justify-content-center">
                                                 <div class="col-sm-4 text-center">
                                                     <labe>Cover Image </label>
                                                         <input type="file" id="txtCoverImg" class="dropify imageScrop"
                                                             data-slno="" data-is-cover-image="1"
                                                             data-max-file-size="{{$Settings['upload-limit']}}"
-                                                            data-default-file="<?php if ($isEdit == true) {if ($EditData[0]->ServiceImage != "") {echo url('/') . "/" . $EditData[0]->ServiceImage;}}?>"
+                                                            data-default-file="<?php if ($isEdit == true) {if ($EditData[0]->ProjectImage != "") {echo url('/') . "/" . $EditData[0]->ProjectImage;}}?>"
                                                             data-allowed-file-extensions="jpeg jpg png gif" />
                                                         <span class="errors" id="txtCoverImg-err"></span>
                                                 </div>
@@ -323,7 +323,7 @@ $(document).ready(function() {
     let GalleryCount = parseInt("{{$GalleryCount}}");
     var currentTab = 0;
     showTab(currentTab);
-    let isServiceName = false;
+    let isProjectName = false;
     let isSlug = false;
     let DeletedGalleryImg = [];
 
@@ -365,12 +365,12 @@ $(document).ready(function() {
         let status = true;
         let x = document.getElementsByClassName("tab");
         let page = x[currentTab].getAttribute('data-page');
-        if (page == "Service Info") {
+        if (page == "Project Info") {
             $("html, body").animate({
                 scrollTop: 0
             }, "slow");
-            $('.errors.ServiceInfo').html('');
-            let ServiceName = $('#txtServiceName').val();
+            $('.errors.ProjectInfo').html('');
+            let ProjectName = $('#txtProjectName').val();
             let HSNSAC = $('#txtHSNSAC').val();
             let Slug = $('#txtSlug').val();
             let Category = $('#lstCategory').val();
@@ -381,21 +381,21 @@ $(document).ready(function() {
             let ActiveStatus = $('#lstActiveStatus').val();
             let ShortDescription = $('#txtShortDescription').val();
 
-            if (ServiceName == "") {
-                $('#txtServiceName-err').html('Service name is required');
+            if (ProjectName == "") {
+                $('#txtProjectName-err').html('Project name is required');
                 status = false;
-            } else if (ServiceName.length < 3) {
-                $('#txtServiceName-err').html('The Service name is must be greater than 3 characters.');
+            } else if (ProjectName.length < 3) {
+                $('#txtProjectName-err').html('The Project name is must be greater than 3 characters.');
                 status = false;
-            } else if (ServiceName.length > 100) {
-                $('#txtServiceName-err').html('The Service name is not greater than 100 characters.');
+            } else if (ProjectName.length > 100) {
+                $('#txtProjectName-err').html('The Project name is not greater than 100 characters.');
                 status = false;
-            } else if (isServiceName == true) {
-                $('#txtServiceName-err').html('Service Name is not available. Already taken').removeClass(
+            } else if (isProjectName == true) {
+                $('#txtProjectName-err').html('Project Name is not available. Already taken').removeClass(
                     'success');
                 status = false
-            } else if (isServiceName == false) {
-                $('#txtServiceName-err').html('Service Name is available').addClass('success');
+            } else if (isProjectName == false) {
+                $('#txtProjectName-err').html('Project Name is available').addClass('success');
             }
             if (ShortDescription == "") {
                 $('#txtShortDescription-err').html('Short Description is required');
@@ -580,7 +580,7 @@ $(document).ready(function() {
    const getData = async () => {
     let tmp = await UploadImages();
     let formData = new FormData();
-    formData.append('ServiceName', $('#txtServiceName').val());
+    formData.append('ProjectName', $('#txtProjectName').val());
     formData.append('HSNSAC', $('#txtHSNSAC').val());
     formData.append('Slug', $('#txtSlug').val());
     formData.append('Category', $('#lstCategory').val());
@@ -610,7 +610,7 @@ $(document).ready(function() {
     const Save = async () => {
         swal({
             title: "Are you sure?",
-            text: "You want @if($isEdit==true)Update @else Save @endif this Service!",
+            text: "You want @if($isEdit==true)Update @else Save @endif this Project!",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-outline-success",
@@ -622,7 +622,7 @@ $(document).ready(function() {
             swal.close();
             btnLoading($('#nextBtn'));
             @if($isEdit) let posturl =
-                "{{url('/')}}/admin/master/services/edit/{{$ServiceID}}";
+                "{{url('/')}}/admin/master/services/edit/{{$ProjectID}}";
             @else
             let posturl = "{{url('/')}}/admin/master/services/create";
             @endif
@@ -685,8 +685,8 @@ $(document).ready(function() {
                             $.each(response['errors'], function(KeyName,
                                 KeyValue) {
                                 var key = KeyName;
-                                if (key == "ServiceName") {
-                                    $('#txtServiceName-err').html(
+                                if (key == "ProjectName") {
+                                    $('#txtProjectName-err').html(
                                         KeyValue);
                                 }
                                 if (key == "HSNSAC") {
@@ -819,7 +819,7 @@ $(document).ready(function() {
         });
         return uploadImages;
     }
-    const checkServiceName = async (serviceName) => {
+    const checkProjectName = async (serviceName) => {
         $.ajax({
             type: "post",
             url: "{{url('/')}}/admin/master/services/check/service-name",
@@ -827,8 +827,8 @@ $(document).ready(function() {
                 'X-CSRF-Token': $('meta[name=_token]').attr('content')
             },
             data: {
-                ServiceName: serviceName,
-                serviceID: "<?php if ($isEdit) {echo $ServiceID;}?>"
+                ProjectName: serviceName,
+                serviceID: "<?php if ($isEdit) {echo $ProjectID;}?>"
             },
             dataType: "json",
             async: true,
@@ -838,11 +838,11 @@ $(document).ready(function() {
             complete: function(e, x, settings, exception) {},
             success: function(response) {
                 if (response.status == true) {
-                    isServiceName = true;
-                    $('#txtServiceName-err').html(response.message).removeClass('success');
+                    isProjectName = true;
+                    $('#txtProjectName-err').html(response.message).removeClass('success');
                 } else {
-                    isServiceName = false;
-                    $('#txtServiceName-err').html(response.message).addClass('success');
+                    isProjectName = false;
+                    $('#txtProjectName-err').html(response.message).addClass('success');
                 }
             }
         });
@@ -856,7 +856,7 @@ $(document).ready(function() {
             },
             data: {
                 Slug: Slug,
-                serviceID: "<?php if ($isEdit) {echo $ServiceID;}?>"
+                serviceID: "<?php if ($isEdit) {echo $ProjectID;}?>"
             },
             dataType: "json",
             async: true,
@@ -876,41 +876,41 @@ $(document).ready(function() {
             }
         });
     }
-    $(document).on('keyup', '#txtServiceName', async function() {
-        let serviceName = $('#txtServiceName').val();
+    $(document).on('keyup', '#txtProjectName', async function() {
+        let serviceName = $('#txtProjectName').val();
         if (serviceName == "") {
-            $('#txtServiceName-err').html('Service name is required');
+            $('#txtProjectName-err').html('Project name is required');
             status = false;
         } else if (serviceName.length < 3) {
-            $('#txtServiceName-err').html('The service name is must be greater than 3 characters.');
+            $('#txtProjectName-err').html('The service name is must be greater than 3 characters.');
             status = false;
         } else if (serviceName.length > 100) {
-            $('#txtServiceName-err').html('The service name is not greater than 100 characters.');
+            $('#txtProjectName-err').html('The service name is not greater than 100 characters.');
             status = false;
         } else {
-            $('#txtServiceName-err').html('');
+            $('#txtProjectName-err').html('');
             let slug = await serviceName.toString().slugify()
             await $('#txtSlug').val(slug);
-            checkServiceName(serviceName);
+            checkProjectName(serviceName);
             checkSlug(slug);
         }
     });
-    $(document).on('change', '#txtServiceName', async function() {
-        let serviceName = $('#txtServiceName').val();
+    $(document).on('change', '#txtProjectName', async function() {
+        let serviceName = $('#txtProjectName').val();
         if (serviceName == "") {
-            $('#txtServiceName-err').html('Service name is required');
+            $('#txtProjectName-err').html('Project name is required');
             status = false;
         } else if (serviceName.length < 3) {
-            $('#txtServiceName-err').html('The service name is must be greater than 3 characters.');
+            $('#txtProjectName-err').html('The service name is must be greater than 3 characters.');
             status = false;
         } else if (serviceName.length > 100) {
-            $('#txtServiceName-err').html('The service name is not greater than 100 characters.');
+            $('#txtProjectName-err').html('The service name is not greater than 100 characters.');
             status = false;
         } else {
-            $('#txtServiceName-err').html('');
+            $('#txtProjectName-err').html('');
             let slug = await serviceName.toString().slugify()
             await $('#txtSlug').val(slug);
-            checkServiceName(serviceName);
+            checkProjectName(serviceName);
             checkSlug(slug);
         }
     });

@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-class serviceController extends Controller
+class clientController extends Controller
 {
     private $general;
     private $support;
@@ -138,7 +138,7 @@ class serviceController extends Controller
     }
     public function checkServiceName(Request $req)
     {
-        $sql = "Select * from tbl_services Where ServiceName='" . $req->ServiceName . "'";
+        $sql = "Select * from tbl_services Where ServiceName='" . $req->ProjectName . "'";
         if ($req->serviceID != "") {
             $sql .= " and ServiceID<>'" . $req->serviceID . "'";
         }
@@ -200,7 +200,7 @@ public function Save(Request $req)
         $ValidDB['Category']['WHERE'][] = array("COLUMN" => "ActiveStatus", "CONDITION" => "=", "VALUE" => 1);
 
         $rules = array(
-            'ServiceName' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " ServiceName='" . $req->ServiceName . "'"), "This Service Name is already exists.")],
+            'ServiceName' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " ServiceName='" . $req->ProjectName . "'"), "This Project Name is already exists.")],
             'Slug' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " Slug='" . $req->Slug . "'"), "Slug is already exists.")],
             'HSNSAC' => 'required',
             'Price' => 'required|numeric',
@@ -253,7 +253,7 @@ public function Save(Request $req)
             }
             $data = array(
                 "ServiceID" => $ServiceID,
-                "ServiceName" => $req->ServiceName,
+                "ProjectName" => $req->ProjectName,
                 "HSNSAC" => $req->HSNSAC,
                 "Slug" => $req->Slug,
                 "CID" => $req->Category,
@@ -347,7 +347,7 @@ public function Save(Request $req)
             $ValidDB['Category']['WHERE'][] = array("COLUMN" => "ActiveStatus", "CONDITION" => "=", "VALUE" => 1);
 
             $rules = array(
-                'ServiceName' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " ServiceName='" . $req->ServiceName . "' and ServiceID<>'" . $ServiceID . "'"), "This Service Name is already exists.")],
+                'ServiceName' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " ServiceName='" . $req->ProjectName . "' and ServiceID<>'" . $ServiceID . "'"), "This Service Name is already exists.")],
                 'Slug' => ['required', 'min:3', 'max:100', new ValidUnique(array("TABLE" => "tbl_services", "WHERE" => " Slug='" . $req->Slug . "'  and ServiceID<>'" . $ServiceID . "'"), "Slug is already exists.")],
                 'HSNSAC' => 'required',
                 'Price' => 'required|numeric',
@@ -404,7 +404,7 @@ public function Save(Request $req)
                     }
                 }
                 $data = array(
-                    "ServiceName" => $req->ServiceName,
+                    "ProjectName" => $req->ProjectName,
                     "HSNSAC" => $req->HSNSAC,
                     "Slug" => $req->Slug,
                     "CID" => $req->Category,

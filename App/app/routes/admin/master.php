@@ -1,6 +1,7 @@
 <?php
+
 use App\Http\Controllers\admin\master\categoryController;
-use App\Http\Controllers\admin\master\clientsController;
+use App\Http\Controllers\admin\master\clientController;
 use App\Http\Controllers\admin\master\serviceController;
 use App\Http\Controllers\admin\master\taxController;
 use App\Http\Controllers\admin\master\uomController;
@@ -78,25 +79,24 @@ Route::group(['prefix' => 'services'], function () {
 });
 
 Route::group(['prefix' => 'clients'], function () {
-    Route::controller(clientsController::class)->group(function () {
+    Route::controller(clientController::class)->group(function () {
         Route::get('/', 'index');
         Route::get('/create', 'create');
-        // Route::get('/edit/{serviceID}', 'edit');
-        // Route::get('/restore', 'restoreView');
+        Route::get('/edit/{serviceID}', 'edit');
+        Route::get('/restore', 'restoreView');
 
-        // Route::post('/data', 'TableView');
-        // Route::post('/restore-data', 'RestoreTableView');
-        // Route::post('/create', 'save');
-        // Route::post('/edit/{serviceID}', 'update');
-        // Route::post('/delete/{serviceID}', 'Delete');
-        // Route::post('/restore/{serviceID}', 'Restore');
+        Route::post('/data', 'TableView');
+        Route::post('/restore-data', 'RestoreTableView');
+         Route::post('/create', 'save');
+        Route::post('/edit/{serviceID}', 'update');
+        Route::post('/delete/{serviceID}', 'Delete');
+        Route::post('/restore/{serviceID}', 'Restore');
 
-        // Route::post('/get/category', 'getCategory');
-        // Route::post('/get/sub-category', 'getSubCategory');
-        // Route::post('/get/tax', 'getTax');
-        // Route::post('/get/uom', 'getUOM');
+        Route::post('/get/category', 'getCategory');
+        Route::post('/get/tax', 'getTax');
+        Route::post('/get/uom', 'getUOM');
 
-        // Route::post('/check/service-name', 'checkServiceName');
-        // Route::post('/check/slug', 'checkSlug');
+        Route::post('/check/project-name', 'checkProjectName');
+        Route::post('/check/slug', 'checkSlug');
     });
 });
